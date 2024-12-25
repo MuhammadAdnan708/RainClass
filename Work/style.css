@@ -1,0 +1,448 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+    height: 100%;
+    display: flex;
+}
+/* Css for navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+    background-color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 70px);
+    margin-left: 70px;
+    z-index: 10;
+    border-bottom: 1px solid rgb(189, 188, 188);
+}
+
+.left {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 12px;
+    color: #3D7BFF;
+    position: relative;
+}
+
+.left::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 5px;
+    background-color: #3D7BFF;
+    position: absolute;
+    bottom: -5px;
+    left: 25%;
+}
+
+.right a {
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    color: #aaa;
+}
+
+.nv {
+    margin-bottom: 9px;
+}
+/* CSS for sidebar */
+.sidebar {
+    width: 70px;
+    background-color: #2c3345;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    color: white;
+    z-index: 10;
+    top: 0;
+}
+
+.sidebar img {
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+.sidebar-icon {
+    width: 30px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+    align-items: center;
+}
+
+.teach-mgm {
+    background-color: #1c223b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.teaching-management-text {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.download-icon {
+    margin-top: auto;
+    cursor: pointer;
+    margin-bottom: 30px;
+    border-bottom: 1px solid black;
+}
+
+.download-icon img:hover {
+    filter: brightness(0) invert();
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -10px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+.logo-container,
+.show-profile-info {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+}
+
+.logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.logo-container:hover {
+    background-color: #1c223b;
+}
+
+.logo-container img {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.p-info {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #fdfdfd;
+    color: #666;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 8px;
+    position: absolute;
+    right: -125px;
+    bottom: -100%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 10;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    min-width: 120px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #1c223b;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    position: absolute;
+    left: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 10;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.tooltip-text p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.p-info p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #aaa;
+}
+
+.p-info a {
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    margin: 5px 0;
+    text-decoration: none;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.p-info::before {
+    content: "";
+    position: absolute;
+    top: 60%;
+    left: -9px;
+    border-left: solid;
+    border-width: 5px;
+    pointer-events: none;
+    border-style: solid;
+    z-index: 0;
+    border-color: transparent #fdfdfd transparent transparent;
+}
+
+.tooltip-text::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -13px;
+    border-left: solid;
+    transform: translateY(-50%);
+    border-width: 7px;
+    pointer-events: none;
+    border-style: solid;
+    z-index: 0;
+    border-color: transparent #1c223b transparent transparent;
+}
+
+.logo-container:hover .tooltip-text,
+.show-profile-info:hover .p-info {
+    visibility: visible;
+    opacity: 1;
+}
+
+.R-P:hover {
+    cursor: pointer;
+    background-color: #EDF4FE;
+    opacity: 90%;
+}
+
+.LG:hover {
+    background-color: #FEEDEC;
+    cursor: pointer;
+    opacity: 90%;
+}
+/*CSS for Cards */
+.main {
+    margin-top: 10px;
+    position: sticky;
+    width: 89%;
+    height: 100%;
+    margin-left: 70px;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+    width: 20%;
+    padding: 7px 2px 7px 12px;
+    margin: 45px 30px 30px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 10px 8px 35px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 30px;
+    color: black;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #C7C8CB;
+}
+
+.search-box input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.search-box .fa-search {
+    position: absolute;
+    left: 25px;
+    top: 68.5%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: #C7C8CB;
+    pointer-events: none;
+}
+
+.search-box .clear-icon {
+    position: absolute;
+    right: 10px;
+    top: 69%;
+    transform: translateY(-50%);
+    color: #C7C8CB;
+    font-size: 14px;
+    cursor: pointer;
+    display: none;
+}
+
+.search-box input:not(:placeholder-shown)~.clear-icon {
+    display: block;
+    color: #C7C8CB;
+}
+
+.search-box .clear-icon:hover {
+    color: black;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    padding-left: 70px;
+    padding-right: 25px;
+}
+
+.card {
+    background: linear-gradient(to right, #43e97b, #38f9d7);
+    border-radius: 5px;
+    color: white;
+    padding: 30px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card-options {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    user-select: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.card-description {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.card-description i {
+    margin-right: 5px;
+}
+/*CSS for archives */
+.archives {
+    visibility: hidden;
+    opacity: 0;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    position: absolute;
+    top: 10px;
+    right: -59px;
+    z-index: 10;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    font-size: 12px;
+    white-space: nowrap;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.archives::before {
+    content: "";
+    position: absolute;
+    top: 23%;
+    left: -11px;
+    border-left: solid;
+    border-width: 7px;
+    pointer-events: none;
+    border-style: solid;
+    z-index: 0;
+    border-color: transparent white transparent transparent;
+}
+
+.tooltip-container:hover .archives {
+    visibility: visible;
+    opacity: 1;
+}
+
+.no-results {
+    text-align: center;
+    font-size: 18px;
+    color: red;
+    margin-top: 20px;
+}
+
+.bg {
+    padding: 7px 10px;
+}
+
+.bg:hover {
+    background-color: rgba(130, 211, 244, 0.438);
+    opacity: 40%;
+    color: rgb(13, 177, 241);
+}
